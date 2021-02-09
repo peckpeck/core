@@ -35,7 +35,11 @@ AM_CFLAGS = \
 	$(PTHREAD_CFLAGS) \
 	$(ENTERPRISE_CFLAGS)
 
-libcf_serverd_la_LIBADD = ../libpromises/libpromises.la
+AM_LDFLAGS = \
+       $(SYSTEMD_SOCKET_LDFLAGS)
+
+libcf_serverd_la_LIBADD = ../libpromises/libpromises.la \
+       $(SYSTEMD_SOCKET_LIBS)
 
 libcf_serverd_la_SOURCES = \
 	cf-serverd.c \

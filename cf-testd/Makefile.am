@@ -37,7 +37,8 @@ AM_CFLAGS = \
 
 libcf_testd_la_LIBADD = \
 	../libpromises/libpromises.la \
-	../cf-serverd/libcf-serverd.la
+	../cf-serverd/libcf-serverd.la \
+	$(SYSTEMD_SOCKET_LIBS)
 
 libcf_testd_la_SOURCES = \
 	cf-testd.c
