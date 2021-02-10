@@ -195,7 +195,7 @@ static int OpenReceiverChannel(char *bind_address)
  */
 int InitServer(size_t queue_size, char *bind_address)
 {
-    #if HAVE_SYSTEMD_SD_DAEMON_H
+#if HAVE_SYSTEMD_SD_DAEMON_H
     int n = sd_listen_fds(0);
     if (n > 1) {
         Log(LOG_LEVEL_ERR, "Too many file descriptors received from systemd");
@@ -204,7 +204,7 @@ int InitServer(size_t queue_size, char *bind_address)
         // but why should we limit ourselves
         return SD_LISTEN_FDS_START;
     } else 
-    #endif // HAVE_SYSTEMD_SD_DAEMON_H
+#endif // HAVE_SYSTEMD_SD_DAEMON_H
     {
         int sd = OpenReceiverChannel(bind_address);
 
