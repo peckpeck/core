@@ -130,8 +130,10 @@ if !NT
 noinst_PROGRAMS = manifest_file
 manifest_file_SOURCES = manifest_file.c
 manifest_file_LDADD = ${top_srcdir}/libntech/libutils/libutils.la \
-					  ../libpromises/libpromises.la \
-                      libcf-agent.la
+	../libpromises/libpromises.la \
+	libcf-agent.la \
+	$(SYSTEMD_SOCKET_LDFLAGS)
+
 TESTS += manifest_file
 endif
 
